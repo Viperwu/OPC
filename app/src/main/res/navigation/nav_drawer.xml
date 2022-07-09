@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_drawer_start"
+    app:startDestination="@id/drawerStartFragment">
+
+    <fragment
+        android:id="@+id/drawerStartFragment"
+        android:name="com.viper.app.ui.page.DrawerStartFragment"
+        android:label="fragment_drawer"
+        tools:layout="@layout/fragment_drawer_start" />
+</navigation>

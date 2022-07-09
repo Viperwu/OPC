@@ -1,0 +1,65 @@
+/*
+ * Copyright (c) 2019 the Eclipse Milo Authors
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
+
+package com.viper.opc.client.opcua.sdk.core.nodes;
+
+import com.viper.opc.client.opcua.sdk.core.QualifiedProperty;
+import com.viper.opc.client.opcua.sdk.core.ValueRanks;
+import com.viper.opc.client.opcua.stack.core.Identifiers;
+import com.viper.opc.client.opcua.stack.core.types.builtin.ByteString;
+import com.viper.opc.client.opcua.stack.core.types.enumerated.NamingRuleType;
+import com.viper.opc.client.opcua.stack.core.util.Namespaces;
+
+public final class ObjectNodeProperties {
+
+    private ObjectNodeProperties() {}
+
+    /**
+     * The NodeVersion Property is used to indicate the version of a Node.
+     * <p>
+     * The NodeVersion Property is updated each time a Reference is added or
+     * removed from the Node the Property belongs to.
+     */
+    public static final QualifiedProperty<String> NodeVersion = new QualifiedProperty<>(
+        Namespaces.OPC_UA,
+        "NodeVersion",
+        Identifiers.String.expanded(),
+        ValueRanks.Scalar,
+        String.class
+    );
+
+    /**
+     * The Icon Property is provides an image that can be used by Clients when
+     * displaying the Node.
+     * <p>
+     * It is expected that the Icon Property contains a relatively small image.
+     */
+    public static final QualifiedProperty<ByteString> Icon = new QualifiedProperty<>(
+        Namespaces.OPC_UA,
+        "Icon",
+        Identifiers.Image.expanded(),
+        ValueRanks.Scalar,
+        ByteString.class
+    );
+
+    /**
+     * The NamingRule Property defines the NamingRule of a ModellingRule.
+     * <p>
+     * This Property shall only be used for Objects of type ModellingRuleType.
+     */
+    public static final QualifiedProperty<NamingRuleType> NamingRule = new QualifiedProperty<>(
+        Namespaces.OPC_UA,
+        "NamingRule",
+        Identifiers.NamingRuleType.expanded(),
+        ValueRanks.Scalar,
+        NamingRuleType.class
+    );
+
+}

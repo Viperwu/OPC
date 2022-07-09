@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">OPC</string>
+    <string name="app_name_debug">OPC</string>
+
+
+
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="connection_fail">连接失败</string>
+    <string name="browse_root_fail">获取根节点失败</string>
+    <string name="browse_fail">遍历出错</string>
+    <string name="browse_not_done">遍历未完成</string>
+    <string name="browse_success">遍历成功</string>
+    <string name="write_to_node_fail">写入失败</string>
+    <string name="write_to_node_wrong">写入出错</string>
+    <string name="write_to_node_success">写入成功</string>
+    <string name="thread_start_fail">线程启动失败</string>
+
+
+    <string name="arrow_right1">&#xe6f2;</string>
+    <string name="arrow_down1">&#xe602;</string>
+    <string name="more">&#xe600;</string>
+    <string name="opc_name1">OPC1</string>
+    <string name="opc_name2">OPC2</string>
+    <string name="opc_name3">OPC3</string>
+
+    <string name="opc_uri1">opc地址1</string>
+    <string name="opc_uri2">opc地址2</string>
+    <string name="opc_uri3">opc地址3</string>
+    <string name="opc_def_uri">opc.tcp://192.168.10.10:4840</string>
+    <string name="opc_def_uri1">opc.tcp://192.168.10.10:4840</string>
+    <string name="opc_def_uri2">opc.tcp://192.168.10.10:4840</string>
+    <string name="opc_def_uri3">opc.tcp://192.168.10.10:4840</string>
+
+    <string name="setting">setting</string>
+    <string name="global_setting">global_setting</string>
+
+    <string name="beans">beans</string>
+    <string name="save_success">保存成功</string>
+    <string name="write_success">写入成功</string>
+    <string name="subscription_success">订阅成功</string>
+    <string name="write_fail">写入失败</string>
+    <string name="save_fail">保存失败</string>
+    <string name="subscription_fail">订阅失败</string>
+
+    <string name="address">地址</string>
+    <string name="browse_node">遍历节点</string>
+    <string name="browse_node1">遍历节点1</string>
+    <string name="browse_node_name1">遍历节点名1</string>
+    <string name="browse_node2">遍历节点2</string>
+    <string name="browse_node_name2">遍历节点名2</string>
+    <string name="browse_node3">遍历节点3</string>
+    <string name="browse_node_name3">遍历节点名3</string>
+
+    <string name="opc_def_name">OPC</string>
+
+    <string name="root_node">根节点</string>
+    <string name="plc_node">PLC节点</string>
+    <string name="data_node">数据块节点</string>
+    <string name="input_node">输入节点</string>
+    <string name="output_node">输出节点</string>
+    <string name="memory_node">M节点</string>
+    <string name="customer_node">自定义节点</string>
+
+
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="notification">Notify</string>
+    <string name="likes">Favs</string>
+    <string name="happy">Happy</string>
+    <string name="room">Room</string>
+    <string name="restaurant">Food</string>
+    <string name="shop">Shop</string>
+    <string name="photos">Pics</string>
+    <string name="call">Call</string>
+
+
+    <string name="open_tree">打开根节点</string>
+    <string name="close_tree">关闭根节点</string>
+
+    <string name="keep_livedata">保持刷新</string>
+    <string name="close_livedata">关闭刷新</string>
+
+
+
+    <string name="title_home">主页</string>
+    <string name="enter_here">在此输入</string>
+    <string name="connect_success">连接成功</string>
+    <string name="nodeid_no_init">节点未初始化</string>
+    <string name="opc_def_page_name">画面.1</string>
+    <string name="data_source">数据源</string>
+    <string name="page_name">画面名</string>
+    <string name="opc_setting">opc_setting</string>
+    <string name="page_setting">page_setting</string>
+    <string name="opc_setting_ids">opc_setting_ids</string>
+    <string name="page_setting_ids">page_setting_ids</string>
+    <string name="first_start_app">first_start_app</string>
+    <string name="setting_init">setting_init</string>
+    <string name="reset_all_setting">重置所有参数</string>
+    <string name="reset_all_setting_or_not">确定要重置所有参数吗？</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="add_page">增加一个画面</string>
+    <string name="add_opc">增加一个OPC</string>
+    <string name="delete_current">删除该项</string>
+    <string name="customer_data_source">自定义数据源</string>
+    <string name="set_node_info">配置节点信息</string>
+    <string name="change_item_width">修改显示长度</string>
+    <string name="change_item_height">修改显示宽度</string>
+    <string name="change_item_style">更改显示样式</string>
+    <string name="item_detail">详细信息</string>
+    <string name="detail_item">删除该项</string>
+    <string name="invalid_node_info">无效的节点</string>
+    <string name="configuration_node_info">请配置节点信息</string>
+    <string name="order_current">订阅该项</string>
+    <string name="write_value">写入数值</string>
+    <string name="save_to_browse_node">保存为遍历节点</string>
+    <string name="refresh_view">刷新视图</string>
+    <string name="change_item_name">修改名称</string>
+    <string name="copy_node_info">复制节点</string>
+    <string name="paste_node_info">粘贴节点</string>
+    <string name="paste_node_all_info">粘贴节点所有信息</string>
+    <string name="set_click_event">设置点击事件</string>
+    <string name="style_info">样式说明</string>
+    <string name="cache_file_name">imo_opc.cache</string>
+    <string name="move_item">移动该项</string>
+    <string name="set_spinner_event">配置选项</string>
+    <string name="add_child">增加一个子控件</string>
+    <string name="paste_all_child_node">粘贴所有子节点</string>
+    <string name="this_is_name">这是名称</string>
+    <string name="this_is_value">这是数值</string>
+    <string name="read_mode">获取数据模式</string>
+    <string name="read_mode_sub">订阅模式</string>
+    <string name="read_mode_browse">遍历模式</string>
+    <string name="export_all">导出所有</string>
+    <string name="import_all">导入所有</string>
+
+</resources>

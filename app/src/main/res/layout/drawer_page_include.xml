@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.viper.app.ui.state.SettingViewModel" />
+
+
+
+        <variable
+            name="click"
+            type="com.viper.app.ui.page.DrawerStartFragment.ClickProxy" />
+
+        <variable
+            name="adapterPage"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+
+        <!--<import type="android.view.View"/>-->
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="画面"
+                android:layout_marginStart="15dp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="5dp"
+                android:background="@color/line_color" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_page"
+                android:layout_marginStart="10dp"
+                adapter="@{adapterPage}"
+                submitList="@{data.pageSettings}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layoutManager="com.viper.base.databinding.recyclerview.layout_manager.WrapContentGridLayoutManager"
+                />
+          <!--  <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="5dp"
+                android:background="@color/line_color" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baseline_add_circle_24" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center|start"
+                    android:text="增加一个画面"
+                    android:textSize="16sp"
+                    android:onClick="@{()->click.addPage()}"
+                    android:textColor="@color/gray"
+                    />
+            </LinearLayout>-->
+            <!-- adapter="@{adapter}"
+             scrollChangeListener="@{vm.plcNodes}"
+             submitList="@{vm.plcNodes}"-->
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

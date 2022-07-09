@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.viper.app.data.bean.OPCNode" />
+        <import type="android.view.View"/>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:visibility="@{data.canExpand?View.VISIBLE:View.INVISIBLE}"
+            />
+
+        <com.viper.app.ui.view.MarqueeView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@{data.name}"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/global_data"
+            tools:text="text" />
+
+        <com.viper.app.ui.view.MarqueeView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:maxWidth="60dp"
+            android:text="@{data.siemensType}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/global_data" />
+
+        <com.viper.app.ui.view.MarqueeView
+            android:id="@+id/value"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:gravity="center|end"
+            android:text="@{data.value}"
+            android:textColor="@color/pink"
+            android:textSize="@dimen/global_data"
+            android:textStyle="bold|italic"
+            tools:text="text" />
+
+
+    </LinearLayout>
+
+    <!-- </androidx.cardview.widget.CardView>-->
+
+</layout>

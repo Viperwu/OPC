@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spinner_item"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginEnd="10dp"
+    android:orientation="horizontal">
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/item_key"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/page_item_margin_start"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:hint="在此输入名称"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:textColor="@color/page_name"
+        android:textSize="@dimen/page_item_text_size"
+        android:textStyle="bold|italic" />
+
+    <View
+        android:layout_width="5dp"
+        android:layout_height="match_parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/item_value"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/page_item_margin_end"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:hint="在此输入数值"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:textColor="@color/page_value"
+        android:textSize="@dimen/page_item_text_size"
+        android:textStyle="bold|italic" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginEnd="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_round_delete_24" />
+
+
+</LinearLayout>
+

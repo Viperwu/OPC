@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.viper.app.ui.state.BaseOpcViewModel" />
+
+        <variable
+            name="sd"
+            type="com.viper.app.ui.state.BaseSharedOPCDataModel" />
+
+
+        <variable
+            name="click"
+            type="com.viper.app.ui.page.BaseOpcFragment.ClickProxy" />
+
+
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:elevation="0dp"
+            >
+            <!-- android:theme="@style/AppTheme"-->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapse_layout"
+                android:layout_width="match_parent"
+
+                android:layout_height="0dp"
+                app:contentScrim="@color/transparent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbar"
+                drawable_radius="@{8}"
+                drawable_solidColor="@{0x88ffffff}"
+                drawable_strokeColor="@{0x33666666}"
+                drawable_strokeWidth="@{1}"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp">
+
+           <!-- <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+
+                android:orientation="horizontal">-->
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_menu"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="12dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{()->click.openMenu()}"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_menu_black_48dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--<androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_progress"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_app"
+                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <TextView
+                    android:id="@+id/tv_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.title}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_more"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{click::showDialog}"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_baseline_more_vert_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:background="@color/white"
+                android:id="@+id/rv_1"
+                adapter="@{adapter}"
+                scrollChangeListener="@{vm.opcNodes}"
+                submitList="@{vm.opcNodes}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:padding="-1dp"
+                app:layoutManager="com.viper.base.databinding.recyclerview.layout_manager.WrapContentGridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <!-- <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="@color/white"
+         >
+
+
+         <com.google.android.material.appbar.AppBarLayout
+             android:id="@+id/appbar_layout"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent">
+            &lt;!&ndash; android:background="@drawable/bg_home"&ndash;&gt;
+             <com.google.android.material.appbar.CollapsingToolbarLayout
+                 android:id="@+id/collapse_layout"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:fitsSystemWindows="true"
+                 app:contentScrim="@color/transparent"
+                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                 <androidx.constraintlayout.widget.ConstraintLayout
+                     android:id="@+id/toolbar"
+                     drawable_radius="@{8}"
+                     drawable_solidColor="@{0x88ffffff}"
+                     drawable_strokeColor="@{0x33666666}"
+                     drawable_strokeWidth="@{1}"
+                     android:layout_width="match_parent"
+                     android:layout_height="45dp"
+                     android:layout_marginStart="12dp"
+                     android:layout_marginTop="37dp"
+                     android:layout_marginEnd="12dp"
+                     android:layout_marginBottom="12dp">
+
+                     <androidx.appcompat.widget.AppCompatImageView
+                         android:id="@+id/iv_menu"
+                         android:layout_width="24dp"
+                         android:layout_height="24dp"
+                         android:layout_marginStart="12dp"
+                         android:background="?attr/selectableItemBackgroundBorderless"
+                         android:onClick="@{()->click.openMenu()}"
+                         android:scaleType="centerInside"
+                         android:src="@drawable/ic_menu_black_48dp"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintLeft_toLeftOf="parent"
+                         app:layout_constraintTop_toTopOf="parent" />
+
+                     <androidx.appcompat.widget.AppCompatImageView
+                         android:id="@+id/iv_icon"
+                         android:layout_width="24dp"
+                         android:layout_height="24dp"
+                         android:background="?attr/selectableItemBackgroundBorderless"
+                         android:scaleType="centerInside"
+                         android:src="@drawable/ic_progress"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintRight_toLeftOf="@+id/tv_app"
+                         app:layout_constraintTop_toTopOf="parent" />
+
+                     <TextView
+                         android:id="@+id/tv_app"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@{vm.title}"
+                         android:textSize="18sp"
+                         android:textStyle="bold"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintLeft_toLeftOf="parent"
+                         app:layout_constraintRight_toRightOf="parent"
+                         app:layout_constraintTop_toTopOf="parent" />
+
+                     <androidx.appcompat.widget.AppCompatImageView
+                         android:id="@+id/iv_more"
+                         android:layout_width="24dp"
+                         android:layout_height="24dp"
+                         android:layout_marginEnd="12dp"
+                         android:onClick="@{click::showDialog}"
+                         android:background="?attr/selectableItemBackgroundBorderless"
+                         android:scaleType="centerInside"
+                         android:src="@drawable/ic_baseline_more_vert_24"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintRight_toRightOf="parent"
+                         app:layout_constraintTop_toTopOf="parent" />
+
+                 </androidx.constraintlayout.widget.ConstraintLayout>
+             </com.google.android.material.appbar.CollapsingToolbarLayout>
+            &lt;!&ndash; </com.google.android.material.appbar.CollapsingToolbarLayout>&ndash;&gt;
+
+
+         </com.google.android.material.appbar.AppBarLayout>
+
+       &lt;!&ndash;  </LinearLayout>&ndash;&gt;
+
+
+
+
+
+        &lt;!&ndash; <Button
+             android:id="@+id/start_task"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="@{()->click.connectToPLC()}"
+             android:text="连接到PLC"
+             android:layout_marginStart="5dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/appbar_layout" />
+
+         <Button
+             android:id="@+id/refresh"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="5dp"
+             android:onClick="@{()->click.refresh()}"
+             android:text="刷新试图"
+             app:layout_constraintEnd_toStartOf="@id/close_or_open"
+             app:layout_constraintStart_toEndOf="@id/start_task"
+             app:layout_constraintTop_toBottomOf="@id/appbar_layout"
+             app:layout_constraintTop_toTopOf="@+id/start_task" />
+
+         <Button
+             android:id="@+id/close_or_open"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="10dp"
+             android:onClick="@{()->click.closeOrOpen()}"
+             android:text="@{vm.openOrCloseRootNode?@string/close_tree:@string/open_tree}"
+             app:layout_constraintEnd_toStartOf="@id/keep_livedata"
+             app:layout_constraintStart_toEndOf="@id/refresh"
+             app:layout_constraintTop_toTopOf="@+id/refresh" />
+
+         <Button
+             android:id="@+id/keep_livedata"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="10dp"
+             android:layout_marginEnd="5dp"
+             android:onClick="@{()->click.keepLiveData()}"
+             android:text="@{sd.keepLiveData?@string/close_livedata:@string/keep_livedata}"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toEndOf="@id/close_or_open"
+             app:layout_constraintTop_toTopOf="@+id/close_or_open" />&ndash;&gt;
+         &lt;!&ndash;<HorizontalScrollView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">&ndash;&gt;
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rv_1"
+             adapter="@{adapter}"
+             scrollChangeListener="@{vm.plcNodes}"
+             submitList="@{vm.plcNodes}"
+             android:layout_width="0dp"
+             android:layout_height="0dp"
+             android:layout_gravity="center"
+             android:padding="-1dp"
+             app:layoutManager="com.viper.base.databinding.recyclerview.layout_manager.WrapContentGridLayoutManager"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/appbar_layout" />
+
+         &lt;!&ndash; </HorizontalScrollView>&ndash;&gt;
+
+         &lt;!&ndash;adapter="@{adapter}"
+         submitList="@{vm.list}"&ndash;&gt;
+
+     </androidx.constraintlayout.widget.ConstraintLayout>-->
+</layout>

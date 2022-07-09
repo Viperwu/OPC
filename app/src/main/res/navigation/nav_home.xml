@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.viper.app.ui.page.HomeFragment"
+        android:label="@string/opc_name1" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_opc"
+        android:name="com.viper.app.ui.page.BaseOpcFragment"
+        android:label="@string/opc_def_name" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_page"
+        android:name="com.viper.app.ui.page.BasePageFragment"
+        android:label="@string/opc_def_name" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.viper.app.ui.page.AboutFragment"
+        android:label="AboutFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.viper.app.ui.page.CalculatorFragment"
+        android:label="CalculatorFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.viper.app.ui.page.SettingFragment"
+        android:label="SettingFragment" />
+
+</navigation>

@@ -1,0 +1,12 @@
+include ':app'
+rootProject.name = 'OPC'
+dependencyResolutionManagement {
+    repositories {
+        // JitPack 远程仓库：https://jitpack.io
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+include ':base'
+include ':opc'

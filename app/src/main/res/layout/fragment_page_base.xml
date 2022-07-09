@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.viper.app.ui.state.BasePageViewModel" />
+
+        <import type="android.view.View"/>
+        <variable
+            name="click"
+            type="com.viper.app.ui.page.BasePageFragment.ClickProxy" />
+        <variable
+            name="adapterPage"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+      <!--  <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:elevation="0dp"
+            >
+           &lt;!&ndash; android:theme="@style/AppTheme"&ndash;&gt;
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/collapse_layout"
+                android:layout_width="match_parent"
+                android:fitsSystemWindows="true"
+                android:layout_height="wrap_content"
+                app:contentScrim="@color/transparent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_menu_start"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->click.openDraw()}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_menu_black_48dp" />
+
+            <TextView
+                android:id="@+id/tv_safety_overrided"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="@{vm.title}"
+                android:textColor="#1976D2"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_menu_end"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{click::openAppbarMenu}"
+                android:src="@drawable/ic_baseline_more_vert_24" />
+            <!--android:onClick="@{()->click.openAboutFragment()}"-->
+        </LinearLayout>
+          <!--  </androidx.appcompat.widget.Toolbar>
+
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>-->
+
+       <!-- <androidx.core.widget.NestedScrollView
+            android:id="@+id/tv_todo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+             >-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_1"
+            app:layout_constraintTop_toBottomOf="@id/ll"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            adapter="@{adapterPage}"
+            submitList="@{vm.pageItems}"
+            app:layoutManager="com.viper.base.databinding.recyclerview.layout_manager.WrapContentGridLayoutManager" />
+
+                <!--<androidx.core.widget.NestedScrollView
+                    >
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                        android:background="@color/gray"
+                        android:layout_width="match_parent"
+                        android:layout_height="2000dp"/>
+                    <TextView
+                        android:background="@color/blue"
+                        android:layout_width="match_parent"
+                        android:layout_height="2000dp"/>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>-->
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:src="@drawable/ic_baseline_add_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:visibility="@{vm.showFloatingButton?View.VISIBLE:View.GONE}"
+                    android:contentDescription="null"
+                    android:onClick="@{click::openMenu}"
+                    android:layout_margin="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <!--android:src="@drawable/ic_my_icon"
+                android:contentDescription="@string/submit"-->
+
+
+
+
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

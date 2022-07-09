@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+     <variable
+            name="data"
+            type="com.viper.app.data.bean.OPCSetting" />
+        <!--<import type="android.view.View"/>-->
+
+    </data>
+
+    <!-- <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           app:cardPreventCornerOverlap="false"
+           >-->
+    <!-- app:cardUseCompatPadding="true"
+     app:cardElevation="2dp"
+     app:cardCornerRadius="4dp"-->
+    <LinearLayout
+        android:id="@+id/ll"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_baseline_desktop_windows_24"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_connect3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center|start"
+            android:text="@{data.title}"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+
+
+
+
+    </LinearLayout>
+
+    <!-- </androidx.cardview.widget.CardView>-->
+
+</layout>

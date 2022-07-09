@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+      <variable
+            name="data"
+            type="com.viper.app.data.bean.OPCNode" />
+
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <com.viper.app.ui.view.MarqueeView
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/opc_bar_text_size"
+            android:textStyle="bold|italic"
+            android:textColor="@{data.currentSelected?@color/orange:@color/gray}"
+            android:minWidth="60dp"
+            android:text="@{data.name}"
+            android:maxWidth="200dp"
+            tools:text="te" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+
+
+    </LinearLayout>
+
+
+</layout>

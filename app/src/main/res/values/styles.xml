@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+        <style name="AppTheme" parent="QMUI.Compat">
+       <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!-- Customize your theme here. -->
+
+       <!-- <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        &lt;!&ndash;Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色&ndash;&gt;
+     <item name="android:statusBarColor">@android:color/transparent</item>-->
+       <!-- <item name="android:statusBarColor">@color/blue_active</item>-->
+        <!--<item name="colorPrimary">@color/white</item>-->
+        <item name="colorPrimary">@color/def_color</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/def_color</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="bottom_tab_style">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:drawablePadding">0dp</item>
+        <item name="android:textColor">@drawable/bottom_textcolor_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">@dimen/bottom_text</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--<style name=""></style>-->
+    <style name="baseButtonStyle">
+        <item name="android:layout_margin">0.1dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>

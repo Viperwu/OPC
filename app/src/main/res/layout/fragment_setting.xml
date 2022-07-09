@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.viper.app.ui.state.SettingViewModel" />
+
+        <variable
+            name="click"
+            type="com.viper.app.ui.page.SettingFragment.ClickProxy" />
+
+        <variable
+            name="adapterOpc"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="adapterPage"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_menu_start"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{()->click.openDraw()}"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_menu_black_48dp" />
+
+                    <TextView
+                        android:id="@+id/tv_safety_overrided"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="设置"
+                        android:textSize="14sp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/reset_menu"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="15dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{click::openMenu}"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_baseline_more_vert_24" />
+
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_1"
+                    adapter="@{adapterPage}"
+                    submitList="@{vm.pageSettings}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:divider="@null"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none"
+                    app:layoutManager="com.viper.base.databinding.recyclerview.layout_manager.WrapContentLinearLayoutManager" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_2"
+                    adapter="@{adapterOpc}"
+                    submitList="@{vm.opcSettings}"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:divider="@null"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none"
+                    app:layoutManager="com.viper.base.databinding.recyclerview.layout_manager.WrapContentLinearLayoutManager" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!--<androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_2"
+            adapter="@{adapterOpc}"
+            submitList="@{vm.setting.opcSettings}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:divider="@null"
+            android:scrollbars="none"
+            app:layoutManager="com.viper.base.databinding.recyclerview.layout_manager.FullyLinearLayoutManager" />
+-->
+
+
+        <!--   adapter="@{adapter}"
+           scrollChangeListener="@{vm.plcNodes}"
+           submitList="@{vm.plcNodes}"-->
+
+        <!--<LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:onClick="@{()->click.reset()}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:src="@drawable/ic_baseline_settings_backup_restore_24" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|start"
+                android:onClick="@{()->click.reset()}"
+                android:text="恢复默认值"
+                android:textSize="@dimen/setting_text_size" />
+
+        </LinearLayout>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

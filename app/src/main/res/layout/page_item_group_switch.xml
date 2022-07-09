@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.viper.app.data.bean.PageNode" />
+
+
+
+    </data>
+
+
+
+
+       <FrameLayout
+           android:background="?android:attr/selectableItemBackground"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+
+        <Switch
+            android:id="@+id/item_value"
+            android:thumb="@drawable/thumb"
+            android:track="@drawable/track"
+            android:switchMinWidth="40dp"
+            android:layout_marginStart="@dimen/page_item_margin_start"
+            android:textColor="@color/page_name"
+            android:layout_marginEnd="@dimen/page_item_margin_end"
+            android:checked="@{Boolean.parseBoolean(data.value)}"
+            tools:text="text"
+            android:text="@{data.name}"
+            android:textSize="@dimen/page_item_text_size"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+       </FrameLayout>
+
+
+
+
+
+
+
+</layout>

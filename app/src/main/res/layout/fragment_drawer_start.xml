@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.viper.app.ui.state.DrawerStartViewModel" />
+
+        <variable
+            name="data"
+            type="com.viper.app.ui.state.SettingViewModel" />
+
+        <!--<variable
+            name="sd1"
+            type="com.viper.app.ui.state.SharedOPCDataModel1" />-->
+
+        <variable
+            name="click"
+            type="com.viper.app.ui.page.DrawerStartFragment.ClickProxy" />
+
+        <variable
+            name="adapterPage"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="adapterOpc"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_launcher"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="?attr/selectableItemBackground"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/blue"
+                app:layout_constraintTop_toBottomOf="@id/tv_app" />
+
+
+            <include
+
+                layout="@layout/drawer_page_include"
+                app:adapterPage="@{adapterPage}"
+                app:click="@{click}"
+                app:data="@{data}"
+
+                 />
+
+            <include
+                layout="@layout/drawer_opc_include"
+                app:adapterOpc="@{adapterOpc}"
+                app:click="@{click}"
+                app:data="@{data}"
+                 />
+
+            <include
+                layout="@layout/drawer_setting_include"
+                app:click="@{click}"
+                />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

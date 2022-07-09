@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.viper.app.data.bean.PageNode" />
+
+
+    </data>
+
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:background="?android:attr/selectableItemBackground">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_value"
+                android:background="@{Boolean.parseBoolean(data.value)?@color/green:@color/white}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{data.name}"
+                android:textColor="@color/page_name"
+                android:textSize="@dimen/page_item_text_size"
+                tools:text="@string/opc_def_name" />
+        </FrameLayout>
+
+
+</layout>

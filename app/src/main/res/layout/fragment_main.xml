@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.viper.app.ui.state.MainViewModel" />
+
+        <variable
+            name="listener"
+            type="com.viper.app.ui.page.MainFragment.ListenerHandler" />
+
+      <!--<variable
+            name="vm"
+            type="com.viper.app.ui.state.MainActivityViewModel" />-->
+      <!--  <variable
+            name="adapter"
+            type="androidx.viewpager2.adapter.FragmentStateAdapter" />-->
+        <!--  <variable
+            name="listener"
+            type="com.viper.app.MainActivity.ListenerHandler" />-->
+
+        <variable
+            name="ac"
+            type="com.viper.app.MainActivity" />
+    </data>
+
+<!--<androidx.drawerlayout.widget.DrawerLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</androidx.drawerlayout.widget.DrawerLayout>-->
+  <!--  <com.viper.app.ui.view.XDrawerLayout-->
+    <androidx.drawerlayout.widget.DrawerLayout
+        allowDrawerOpen="@{vm.allowDrawerOpen}"
+        bindDrawerListener="@{listener}"
+        isOpenDrawer="@{vm.openDrawer}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+      <com.viper.app.ui.view.FullDraggableContainer
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- ... -->
+
+
+        <!-- isOpenEndDrawer="@{vm.openEndDrawer}"-->
+
+       <!-- <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">-->
+
+            <!-- <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager2"
+                initPagerAndBottom="@{adapter}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/main_fragment_host"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navGraph="@navigation/nav_home" />
+            <!--app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"-->
+           <!-- <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                bottomNavInit="@{ac}"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="bottom"
+                android:background="?android:attr/windowBackground"
+                app:elevation="0dp"
+                app:itemIconTint="@drawable/bottom_navigation_item_selector"
+                app:itemTextColor="@drawable/bottom_navigation_item_selector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_nav_menu" />-->
+            <!-- bottomNavInit="@{ac}"-->
+      </com.viper.app.ui.view.FullDraggableContainer>
+
+       <!-- </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/drawer_start"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_drawer_start" />
+
+        <!-- <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/drawer_end"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:fitsSystemWindows="true"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_drawer_end" />-->
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+
+
+
+</layout>

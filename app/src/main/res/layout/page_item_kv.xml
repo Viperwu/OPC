@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.viper.app.data.bean.PageNode" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/page_item_kv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:cardCornerRadius="4dp"
+        android:minHeight="@dimen/page_item_min_height"
+        android:minWidth="@dimen/page_item_min_width"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="2dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+
+           <TextView
+               android:layout_marginStart="@dimen/page_item_margin_start"
+               android:id="@+id/item_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="fill_vertical"
+                android:text="@{data.name}"
+                android:textColor="@color/page_name"
+               android:textSize="@dimen/page_item_text_size"
+                tools:text="text" />
+
+
+            <TextView
+                android:id="@+id/item_value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/page_item_margin_end"
+                android:layout_weight="1"
+                android:text="@{data.value}"
+                android:gravity="end|center"
+                android:textColor="@color/page_value"
+                android:textSize="@dimen/page_item_text_size"
+                android:textStyle="bold|italic"
+                tools:text="text" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
